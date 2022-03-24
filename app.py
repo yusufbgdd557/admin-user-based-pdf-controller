@@ -1,4 +1,3 @@
-from re import A
 from flask import session, url_for
 from tika import parser
 from html.entities import html5
