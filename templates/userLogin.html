@@ -1,0 +1,172 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template" />
+    <meta name="author" content="Lorenzo Angelino aka MrLolok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Raleway");
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        color: #f2f2f2;
+        background-color: #303641;
+      }
+
+      #container-login {
+        background-color: #1d1f20;
+        position: relative;
+        top: 20%;
+        margin: auto;
+        width: 340px;
+        height: 270px;
+        border-radius: 0.35em;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      #title {
+        position: relative;
+        background-color: #1a1c1d;
+        width: 100%;
+        padding: 20px 0px;
+        border-radius: 0.35em;
+        font-size: 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .lock {
+        position: relative;
+        top: 2px;
+      }
+
+      .input {
+        margin: auto;
+        width: 240px;
+        border-radius: 4px;
+        background-color: #373b3d;
+        padding: 8px 0px;
+        margin-top: 15px;
+      }
+
+      .input-addon {
+        float: left;
+        background-color: #373b3d;
+        border: 1px solid #373b3d;
+        padding: 4px 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      input[type="text"] {
+        color: #949494;
+        margin: 0;
+        background-color: #373b3d;
+        border: 1px solid #373b3d;
+        padding: 6px 0px;
+        border-radius: 3px;
+      }
+
+      input[type="text"]:focus {
+        border: 1px solid #373b3d;
+      }
+
+      input[type="password"] {
+        color: #949494;
+        margin: 0;
+        background-color: #373b3d;
+        border: 1px solid #373b3d;
+        padding: 6px 0px;
+        border-radius: 3px;
+      }
+
+      input[type="password"]:focus {
+        border: 1px solid #373b3d;
+      }
+
+      *:focus {
+        outline: none;
+      }
+
+      input[type="submit"] {
+        padding: 6px 25px;
+        background: #373e4a;
+        color: #c1c3c6;
+        font-weight: bold;
+        border: 0 none;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .clearfix {
+        clear: both;
+      }
+      a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        margin-left: -0.7em;
+      }
+
+      a:hover {
+        background-color: #373e4a;
+        color: #f2f2f2;
+      }
+
+      .previous {
+        background-color: #1a1c1d;
+        color: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container-login">
+      <div id="title">
+        <a href="/" class="previous">&laquo;</a>
+        <i class="material-icons lock">lock</i> Kullanıcı Giriş
+      </div>
+
+      <form action="/user/login/check" method="POST">
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">face</i>
+          </div>
+          <input
+            id="username"
+            name="username"
+            placeholder="Kullanıcı Adı"
+            type="text"
+            required
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">vpn_key</i>
+          </div>
+          <input
+            id="password"
+            name="password"
+            placeholder="Şifre"
+            type="password"
+            required
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <br />
+        <input type="submit" value="Giriş yap" />
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template" />
+    <meta name="author" content="Lorenzo Angelino aka MrLolok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Raleway");
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        color: #f2f2f2;
+        background-color: #303641;
+      }
+
+      #container {
+        background-color: #1d1f20;
+        position: relative;
+        top: 30%;
+        margin: auto;
+        width: 340px;
+        height: 260px;
+        border-radius: 0.35em;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      #title {
+        position: relative;
+        background-color: #1a1c1d;
+        width: 100%;
+        padding: 25px 0px;
+        border-radius: 0.35em;
+        font-size: 17px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .input {
+        margin: auto;
+        width: 320px;
+        border-radius: 4px;
+        background-color: #373e4a;
+        padding: 8px 0px;
+        margin-top: 15px;
+      }
+
+      .input-addon {
+        float: left;
+        background-color: #373e4a;
+        border: 1px solid #373e4a;
+        padding: 5px 0px;
+        width: 318px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      input[type="file"] {
+        color: #949494;
+        margin: 0;
+        background-color: #373e4a;
+        border: 1px solid #373e4a;
+        padding: 5px 0px;
+        border-radius: 3px;
+      }
+
+      input[type="file"]:focus {
+        border: 1px solid #373b3d;
+      }
+
+      *:focus {
+        outline: none;
+      }
+
+      input[type="submit"] {
+        padding: 6px 25px;
+        background: #373e4a;
+        color: #c1c3c6;
+        font-weight: bold;
+        border: 0 none;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .clearfix {
+        clear: both;
+      }
+
+      .table {
+        margin-top: 300px;
+        margin-left: 768px;
+        background-color: #1a1c1d;
+        width: 400px;
+      }
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      .styled-table thead tr {
+        background-color: #1a1c1d;
+        color: #ffffff;
+        text-align: left;
+      }
+      .styled-table th,
+      .styled-table td {
+        padding: 12px 15px;
+      }
+      .styled-table tbody tr {
+        background-color: #1a1c1d;
+        border-bottom: 1px solid #dddddd;
+      }
+      .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #f2f2f2;
+      }
+      a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        margin-left: -0.7em;
+      }
+
+      a:hover {
+        background-color: #373e4a;
+        color: #f2f2f2;
+      }
+
+      .previous {
+        background-color: #1a1c1d;
+        color: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <form
+        action="/user/uploadpdf"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div id="title">
+          <a href="/user/login" class="previous">&laquo;</a>
+          {{ userName }} PDF Yükeleme Yeri
+        </div>
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">picture_as_pdf</i>
+          </div>
+          <input
+            id="pdf"
+            name="pdf"
+            placeholder="pdf yükle"
+            type="file"
+            required
+            class="validate"
+            autocomplete="off"
+            accept="application/pdf"
+          />
+        </div>
+
+        <div class="clearfix"></div>
+        <br />
+        <input type="submit" value="pdf yükle" />
+      </form>
+    </div>
+    <div class="table">
+      <table class="styled-table">
+        <thead>
+          <th>Kullanıcı Adı</th>
+          <th>Yüklenen PDF Adı</th>
+        </thead>
+        {% if result %}
+        <tbody>
+          <tr class="active-row">
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+          </tr>
+        </tbody>
+        {% endif %}
+      </table>
+    </div>
+  </body>
+</html>

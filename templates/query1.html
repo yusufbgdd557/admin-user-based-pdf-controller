@@ -1,0 +1,225 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template" />
+    <meta name="author" content="Lorenzo Angelino aka MrLolok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Raleway");
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        color: #f2f2f2;
+        background-color: #303641;
+      }
+
+      #container {
+        background-color: #1d1f20;
+        position: relative;
+        top: 2%;
+        margin: auto;
+        width: 340px;
+        height: 450px;
+        border-radius: 0.35em;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      #title {
+        position: relative;
+        background-color: #1a1c1d;
+        width: 100%;
+        padding: 20px 0px;
+        border-radius: 0.35em;
+        font-size: 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .input {
+        margin: auto;
+        width: 240px;
+        border-radius: 4px;
+        background-color: #373b3d;
+        padding: 8px 0px;
+        margin-top: 15px;
+      }
+
+      input[type="text"] {
+        color: #949494;
+        margin: 0;
+        background-color: #373b3d;
+        border: 1px solid #373b3d;
+        padding: 6px 0px;
+        border-radius: 3px;
+      }
+
+      input[type="text"]:focus {
+        border: 1px solid #373b3d;
+      }
+
+      input[type="submit"] {
+        padding: 6px 25px;
+        background: #373e4a;
+        color: #c1c3c6;
+        font-weight: bold;
+        border: 0 none;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+      .clearfix {
+        clear: both;
+      }
+
+      .table {
+        background-color: #1a1c1d;
+        width: 100%;
+      }
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.7em;
+        font-family: sans-serif;
+        min-width: 100%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      .styled-table thead tr {
+        background-color: #1a1c1d;
+        color: #ffffff;
+        text-align: left;
+      }
+      .styled-table th,
+      .styled-table td {
+        padding: 12px 15px;
+      }
+      .styled-table tbody tr {
+        background-color: #1a1c1d;
+        border-bottom: 1px solid #dddddd;
+        font-size: 1em;
+      }
+      .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #f2f2f2;
+      }
+      a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        margin-left: -0.7em;
+      }
+
+      a:hover {
+        background-color:  #373e4a;
+        color: #f2f2f2;
+      }
+
+      .previous {
+        background-color:   #1a1c1d;
+        color: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="title">
+        <a href="/admin/pdfinfo" class="previous">&laquo;</a>   Sorgu 1 Paneli
+      </div>
+      <form action="/query1/result" method="POST">
+        <div class="input">
+          <input
+            id="author"
+            name="author"
+            placeholder="Yazar Adı"
+            type="text"
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <div class="input">
+          <input
+            id="lessonName"
+            name="lessonName"
+            placeholder="Ders Adı"
+            type="text"
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <div class="input">
+          <input
+            id="projectName"
+            name="projectName"
+            placeholder="Proje Adı"
+            type="text"
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <div class="input">
+          <input
+            id="keywords"
+            name="keywords"
+            placeholder="Anahtar kelimeler"
+            type="text"
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <div class="input">
+          <input
+            id="date"
+            name="date"
+            placeholder="Dönem"
+            type="text"
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <input type="submit" name="query" value="Sorgula" />
+      </form>
+    </div>
+    <br />
+    <div class="table">
+      <table class="styled-table">
+        <thead>
+          <th>Kullanıcı ID</th>
+          <th>Yazar</th>
+          <th>Ders Adı</th>
+          <th>Özet</th>
+          <th>Tarih</th>
+          <th>Proje Başlığı</th>
+          <th>Anahtar kelimeler</th>
+          <th>Danışman Bilgileri</th>
+          <th>Jüri Bilgileri</th>
+        </thead>
+        {% for i in result %}
+        <tbody>
+          <tr class="active-row">
+            <td>{{ i['userId'] }}</td>
+            <td>{{ i['author'] }}</td>
+            <td>{{ i['ders_adi'] }}</td>
+            <td>{{ i['summary'] }}</td>
+            <td>{{ i['deadline'] }}</td>
+            <td>{{ i['title'] }}</td>
+            <td>{{ i['keywords'] }}</td>
+            <td>{{ i['danisman_bilgileri'] }}</td>
+            <td>{{ i['juri_bilgileri'] }}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

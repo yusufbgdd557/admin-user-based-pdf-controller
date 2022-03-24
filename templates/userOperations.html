@@ -1,0 +1,268 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template" />
+    <meta name="author" content="Lorenzo Angelino aka MrLolok" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Raleway");
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        color: #f2f2f2;
+        background-color: #303641;
+      }
+
+      #container {
+        background-color: #1d1f20;
+        position: relative;
+        top: 2%;
+        margin: auto;
+        width: 340px;
+        height: 580px;
+        border-radius: 0.35em;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      #title {
+        position: relative;
+        background-color: #1a1c1d;
+        width: 100%;
+        padding: 20px 0px;
+        border-radius: 0.35em;
+        font-size: 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .input {
+        margin: auto;
+        width: 240px;
+        border-radius: 4px;
+        background-color: #373b3d;
+        padding: 8px 0px;
+        margin-top: 15px;
+      }
+
+      .input-addon {
+        float: left;
+        background-color: #373b3d;
+        border: 1px solid #373b3d;
+        padding: 4px 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      input[type="text"] {
+        color: #949494;
+        margin: 0;
+        background-color: #373b3d;
+        border: 1px solid #373b3d;
+        padding: 6px 0px;
+        border-radius: 3px;
+      }
+
+      input[type="text"]:focus {
+        border: 1px solid #373b3d;
+      }
+
+      input[type="password"] {
+        color: #949494;
+        margin: 0;
+        background-color: #373b3d;
+        border: 1px solid #373b3d;
+        padding: 6px 0px;
+        border-radius: 3px;
+      }
+
+      input[type="password"]:focus {
+        border: 1px solid #373b3d;
+      }
+
+      *:focus {
+        outline: none;
+      }
+
+      input[type="submit"] {
+        padding: 6px 25px;
+        background: #373e4a;
+        color: #c1c3c6;
+        font-weight: bold;
+        border: 0 none;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+      .clearfix {
+        clear: both;
+      }
+
+      .table {
+        margin-left: 763px;
+        background-color: #1a1c1d;
+        width: 400px;
+      }
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      .styled-table thead tr {
+        background-color: #1a1c1d;
+        color: #ffffff;
+        text-align: left;
+      }
+      .styled-table th,
+      .styled-table td {
+        padding: 12px 15px;
+      }
+      .styled-table tbody tr {
+        background-color: #1a1c1d;
+        border-bottom: 1px solid #dddddd;
+      }
+      .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #f2f2f2;
+      }
+      a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        margin-left: -0.7em;
+      }
+
+      a:hover {
+        background-color: #373e4a;
+        color: #f2f2f2;
+      }
+
+      .previous {
+        background-color: #1a1c1d;
+        color: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="title">
+        <a href="/admin" class="previous">&laquo;</a> Kullanıcı Kontrol Paneli
+      </div>
+      <form action="/admin/useradd" method="POST">
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">face</i>
+          </div>
+          <input
+            id="username"
+            name="username"
+            placeholder="Kullanıcı Adı"
+            type="text"
+            required
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">vpn_key</i>
+          </div>
+          <input
+            id="password"
+            name="password"
+            placeholder="Şifre"
+            type="password"
+            required
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <br />
+        <a href="/admin/useradd">
+          <input type="submit" name="add" value="Kullanıcı Ekle" />
+        </a>
+      </form>
+      <form action="/admin/userupdate" method="POST">
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">face</i>
+          </div>
+          <input
+            id="username"
+            name="username"
+            placeholder="Kullanıcı Adı"
+            type="text"
+            required
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">vpn_key</i>
+          </div>
+          <input
+            id="password"
+            name="password"
+            placeholder="Şifre"
+            type="password"
+            required
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <br />
+        <a href="/admin/userupdate">
+          <input type="submit" name="update" value="Kullanıcı Güncelle" />
+        </a>
+      </form>
+      <form action="/admin/userdelete" method="POST">
+        <div class="input">
+          <div class="input-addon">
+            <i class="material-icons">face</i>
+          </div>
+          <input
+            id="username"
+            name="username"
+            placeholder="Kullanıcı Adı"
+            type="text"
+            required
+            class="validate"
+            autocomplete="off"
+          />
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <a href="/admin/userdelete">
+          <input type="submit" name="update" value="Kullanıcı Sil" />
+        </a>
+      </form>
+    </div>
+    <br />
+    <div class="table">
+      <table class="styled-table">
+        <thead>
+          <th>Kullanıcı Adı</th>
+          <th>Şifre</th>
+        </thead>
+        {% for i in userResult %}
+        <tbody>
+          <tr class="active-row">
+            <td>{{ i['userName'] }}</td>
+            <td>{{ i['userPw'] }}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
